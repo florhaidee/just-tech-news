@@ -3,9 +3,11 @@ const express = require('express');
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 
+
 //setup handlebars as template engine
+const helpers = require('./utils/helpers');
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 
 //setup an Express.js session and connects the session to our Sequelize database
 const session = require('express-session');
